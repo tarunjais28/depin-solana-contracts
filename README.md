@@ -1,1 +1,1 @@
-# depin-solana-contracts
+# DePinX Smart Contracts

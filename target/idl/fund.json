@@ -1,0 +1,9080 @@
+{
+  "address": "8i6Qs3NA3jRFWFgz4cx765ck6uNkUtCmt5PkNeFPbg99",
+  "metadata": {
+    "name": "fund",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "add_admin",
+      "discriminator": [
+        177,
+        236,
+        33,
+        205,
+        124,
+        152,
+        55,
+        186
+      ],
+      "accounts": [
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "creators",
+          "docs": [
+            "The account storing the list of creators"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "executor",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "add_creator",
+      "docs": [
+        "Manage creator accounts and their permissions"
+      ],
+      "discriminator": [
+        120,
+        140,
+        147,
+        174,
+        149,
+        203,
+        237,
+        81
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Reference to the global configuration account"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "creators",
+          "docs": [
+            "The account storing the list of creators"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator_info",
+          "docs": [
+            "Account containing additional creator information (fee percentage, etc.)"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "params.address"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The payer who is executing the transaction (must have sub-admin rights)"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "The system program required for account initialization"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "fund::structs::add_creator::Params"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "add_deployer",
+      "discriminator": [
+        255,
+        224,
+        113,
+        1,
+        119,
+        74,
+        221,
+        27
+      ],
+      "accounts": [
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "creators",
+          "docs": [
+            "The account storing the list of creators"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "executor",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "add_sub_admin_accounts",
+      "docs": [
+        "Add multiple sub-admin accounts to the program"
+      ],
+      "discriminator": [
+        130,
+        141,
+        64,
+        137,
+        151,
+        104,
+        59,
+        232
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "addresses",
+          "type": {
+            "vec": "pubkey"
+          }
+        }
+      ]
+    },
+    {
+      "name": "approve_proposal",
+      "discriminator": [
+        136,
+        108,
+        102,
+        85,
+        98,
+        114,
+        7,
+        147
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "approver",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "blacklist_creator",
+      "discriminator": [
+        152,
+        148,
+        217,
+        136,
+        84,
+        33,
+        229,
+        164
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Reference to the global configuration account"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "creators",
+          "docs": [
+            "The account storing the list of creators"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "Fund data store account.",
+            "Stores details about the fundraising process, including the current status."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "docs": [
+            "Mint account associated with the DPIT token.",
+            "This is used for identifying the token related to the DAO."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "executer",
+          "docs": [
+            "The executer responsible for the transaction"
+          ],
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        },
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "blacklist_user",
+      "discriminator": [
+        227,
+        146,
+        190,
+        19,
+        134,
+        238,
+        79,
+        253
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Reference to the global configuration account"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "blacklist",
+          "docs": [
+            "Account storing blacklist users"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  108,
+                  97,
+                  99,
+                  107,
+                  108,
+                  105,
+                  115,
+                  116
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "executer",
+          "docs": [
+            "The executer responsible for the transaction"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "System program required for allocation and execution of instructions"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "block_dao",
+      "discriminator": [
+        81,
+        100,
+        175,
+        4,
+        100,
+        223,
+        179,
+        211
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Reference to the global configuration account"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "Fund data store account.",
+            "Stores details about the fundraising process, including the current status."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "docs": [
+            "Mint account associated with the DPIT token.",
+            "This is used for identifying the token related to the DAO."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The payer (signer) initiating the DAO start.",
+            "Must be an authorized creator to perform this action."
+          ],
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        },
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "burn",
+      "docs": [
+        "Burn tokens from a specified account"
+      ],
+      "discriminator": [
+        116,
+        110,
+        29,
+        56,
+        107,
+        219,
+        42,
+        93
+      ],
+      "accounts": [
+        {
+          "name": "mint_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "params.token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "from_ata",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "fund::structs::burn::Params"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "claim",
+      "docs": [
+        "Claim tokens based on recorded commitments"
+      ],
+      "discriminator": [
+        62,
+        198,
+        214,
+        193,
+        213,
+        159,
+        108,
+        210
+      ],
+      "accounts": [
+        {
+          "name": "fee_account",
+          "docs": [
+            "Account storing fee information"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_sol_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "commitments",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  109,
+                  109,
+                  105,
+                  116,
+                  109,
+                  101,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "Account that stores fund-related data"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_mint_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_mint_ata",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "escrow_mint_account"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "mint_account",
+          "docs": [
+            "Mint account for the token being claimed"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "to_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "payer"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "User making the claim"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "fees_collection_account",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "docs": [
+            "Solana Token Program"
+          ],
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "docs": [
+            "Solana Associated Token Program"
+          ],
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "Solana System Program"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "claim_test",
+      "docs": [
+        "Claim tokens based on recorded commitments",
+        "TODO: day field is added for testing purpose, will be removed in future"
+      ],
+      "discriminator": [
+        105,
+        216,
+        181,
+        248,
+        74,
+        254,
+        73,
+        153
+      ],
+      "accounts": [
+        {
+          "name": "fee_account",
+          "docs": [
+            "Account storing fee information"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_sol_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "commitments",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  109,
+                  109,
+                  105,
+                  116,
+                  109,
+                  101,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "Account that stores fund-related data"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_mint_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_mint_ata",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "escrow_mint_account"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "mint_account",
+          "docs": [
+            "Mint account for the token being claimed"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "to_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "payer"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "User making the claim"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "fees_collection_account",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "docs": [
+            "Solana Token Program"
+          ],
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "docs": [
+            "Solana Associated Token Program"
+          ],
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "Solana System Program"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        },
+        {
+          "name": "day",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "commitment",
+      "docs": [
+        "Record a commitment for a specific token"
+      ],
+      "discriminator": [
+        71,
+        30,
+        122,
+        145,
+        83,
+        152,
+        188,
+        123
+      ],
+      "accounts": [
+        {
+          "name": "fee_account",
+          "docs": [
+            "Account storing fee information"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "users",
+          "docs": [
+            "User account managing commitment eligibility"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  115,
+                  101,
+                  114,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "blacklist",
+          "docs": [
+            "Account storing blacklist users"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  108,
+                  97,
+                  99,
+                  107,
+                  108,
+                  105,
+                  115,
+                  116
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_sol_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "commitments",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  109,
+                  109,
+                  105,
+                  116,
+                  109,
+                  101,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "Stores fundraising data"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "User committing the funds"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "fees_collection_account",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "Solana System Program"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        },
+        {
+          "name": "sol_amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "create",
+      "docs": [
+        "Create a new token with specified parameters"
+      ],
+      "discriminator": [
+        24,
+        30,
+        200,
+        40,
+        5,
+        28,
+        7,
+        119
+      ],
+      "accounts": [
+        {
+          "name": "creators",
+          "docs": [
+            "Account storing creator information"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator_info",
+          "docs": [
+            "Account holding specific creator data"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "payer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "docs": [
+            "Mint account for the newly created token"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "params.name"
+              }
+            ]
+          }
+        },
+        {
+          "name": "metadata",
+          "writable": true
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "Fund data store account to track token information"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "dao_list",
+          "docs": [
+            "Token counter account to track the number of tokens created"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  97,
+                  111,
+                  95,
+                  108,
+                  105,
+                  115,
+                  116
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "Account paying for the transaction fees"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "Solana System Program"
+          ],
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "docs": [
+            "Solana Token Program"
+          ],
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "docs": [
+            "Program for handling associated token accounts"
+          ],
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "token_metadata_program",
+          "docs": [
+            "Metaplex Token Metadata Program"
+          ],
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        },
+        {
+          "name": "rent",
+          "docs": [
+            "Rent system variable"
+          ],
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "fund::structs::create::Params"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "create_add_admin_proposal",
+      "discriminator": [
+        151,
+        120,
+        12,
+        187,
+        1,
+        184,
+        71,
+        201
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "create_add_deployer_proposal",
+      "discriminator": [
+        61,
+        239,
+        41,
+        185,
+        204,
+        4,
+        135,
+        77
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "deployer_address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "create_block_creator_proposal",
+      "discriminator": [
+        17,
+        72,
+        40,
+        151,
+        8,
+        234,
+        226,
+        17
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "create_block_dao_proposal",
+      "discriminator": [
+        28,
+        62,
+        91,
+        107,
+        197,
+        209,
+        40,
+        85
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "create_block_user_proposal",
+      "discriminator": [
+        220,
+        177,
+        51,
+        150,
+        112,
+        69,
+        150,
+        139
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "create_publish_to_amm_proposal",
+      "discriminator": [
+        39,
+        148,
+        17,
+        187,
+        70,
+        203,
+        88,
+        103
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        },
+        {
+          "name": "fee_percent",
+          "type": "u32"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "create_remove_admin_proposal",
+      "discriminator": [
+        77,
+        76,
+        62,
+        87,
+        213,
+        227,
+        200,
+        16
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "create_remove_deployer_proposal",
+      "discriminator": [
+        199,
+        243,
+        67,
+        231,
+        217,
+        195,
+        48,
+        229
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "deployer_address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "create_remove_liquidity_proposal",
+      "discriminator": [
+        201,
+        182,
+        164,
+        117,
+        155,
+        58,
+        7,
+        171
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        },
+        {
+          "name": "percent",
+          "type": "u32"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "create_transfer_sol_to_creator_proposal",
+      "discriminator": [
+        231,
+        235,
+        6,
+        111,
+        103,
+        209,
+        14,
+        194
+      ],
+      "accounts": [
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "creators",
+          "docs": [
+            "Account storing creator information"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "metadata"
+        },
+        {
+          "name": "fund_data_store",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "create_transfer_sol_to_deployer_proposal",
+      "discriminator": [
+        65,
+        22,
+        27,
+        131,
+        32,
+        232,
+        63,
+        8
+      ],
+      "accounts": [
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "creators",
+          "docs": [
+            "Account storing creator information"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "metadata"
+        },
+        {
+          "name": "fund_data_store",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        },
+        {
+          "name": "transfer_amount",
+          "type": "u64"
+        },
+        {
+          "name": "deployer_address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "create_unblock_creator_proposal",
+      "discriminator": [
+        15,
+        249,
+        196,
+        101,
+        249,
+        169,
+        215,
+        232
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "create_unblock_user_proposal",
+      "discriminator": [
+        199,
+        157,
+        170,
+        165,
+        133,
+        71,
+        75,
+        151
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "create_update_owner_proposal",
+      "discriminator": [
+        221,
+        147,
+        13,
+        132,
+        148,
+        140,
+        36,
+        76
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "u32"
+    },
+    {
+      "name": "end_dao",
+      "discriminator": [
+        204,
+        26,
+        1,
+        207,
+        99,
+        183,
+        6,
+        138
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Reference to the global configuration account"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "Fund data store account.",
+            "Stores details about the fundraising process, including the current status."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_sol_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "docs": [
+            "Mint account associated with the DPIT token.",
+            "This is used for identifying the token related to the DAO."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The payer (signer) initiating the DAO start.",
+            "Must be an authorized creator to perform this action."
+          ],
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "get_proposal_data",
+      "discriminator": [
+        103,
+        57,
+        117,
+        173,
+        25,
+        163,
+        246,
+        122
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Reference to the global configuration account"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "executer",
+          "docs": [
+            "The executer responsible for the transaction"
+          ],
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        },
+        {
+          "name": "proposal_type",
+          "type": {
+            "defined": {
+              "name": "ProposalType"
+            }
+          }
+        }
+      ],
+      "returns": {
+        "defined": {
+          "name": "ProposalData"
+        }
+      }
+    },
+    {
+      "name": "init",
+      "docs": [
+        "Initialize the fund program with a fees collection account"
+      ],
+      "discriminator": [
+        220,
+        59,
+        207,
+        236,
+        108,
+        250,
+        47,
+        100
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Global configuration account, initialized during contract setup"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fee_account",
+          "docs": [
+            "Fee account, used to store fee collection settings"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "dao_list",
+          "docs": [
+            "Token counter account, used to track token-related data"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  97,
+                  111,
+                  95,
+                  108,
+                  105,
+                  115,
+                  116
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "docs": [
+            "The account that pays for the contract initialization"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "System program required for account initialization"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "fees_collection_account",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "init_commitment",
+      "docs": [
+        "Initialize commitment tracking for a specific token"
+      ],
+      "discriminator": [
+        14,
+        32,
+        186,
+        120,
+        116,
+        245,
+        153,
+        225
+      ],
+      "accounts": [
+        {
+          "name": "commitments",
+          "docs": [
+            "Commitment account that stores commitment-related data"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  109,
+                  109,
+                  105,
+                  116,
+                  109,
+                  101,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_sol_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The payer account funding the transaction"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "Solana System Program for handling system instructions"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "init_creators",
+      "docs": [
+        "Initialize the creators account for managing token creators"
+      ],
+      "discriminator": [
+        241,
+        227,
+        253,
+        126,
+        185,
+        247,
+        181,
+        229
+      ],
+      "accounts": [
+        {
+          "name": "creators",
+          "docs": [
+            "Account to store creator-related data"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "blacklist",
+          "docs": [
+            "Account storing blacklist users"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  108,
+                  97,
+                  99,
+                  107,
+                  108,
+                  105,
+                  115,
+                  116
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "Signer responsible for paying the account creation fee"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "System program required for account initialization"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "init_multisig",
+      "docs": [
+        "Initialize the fund program with a fees collection account"
+      ],
+      "discriminator": [
+        119,
+        130,
+        22,
+        116,
+        114,
+        61,
+        124,
+        66
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Reference to the global configuration account"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "docs": [
+            "Proposal List"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The signer of the transaction who is initializing the users"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "The Solana System Program, required for account initialization"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "init_users",
+      "docs": [
+        "Initialize user accounts with maximum allowable commit amount"
+      ],
+      "discriminator": [
+        92,
+        227,
+        136,
+        23,
+        185,
+        146,
+        31,
+        172
+      ],
+      "accounts": [
+        {
+          "name": "users",
+          "docs": [
+            "Stores user-related data, such as maximum allowable commitment amount"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  115,
+                  101,
+                  114,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The signer of the transaction who is initializing the users"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "The Solana System Program, required for account initialization"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "is_admin",
+      "docs": [
+        "Check wheather the given account has admin rights or not"
+      ],
+      "discriminator": [
+        114,
+        10,
+        83,
+        250,
+        202,
+        233,
+        53,
+        63
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "The global configuration account that stores information about admin and sub-admin roles."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "bool"
+    },
+    {
+      "name": "is_either_admin_or_sub_admin",
+      "docs": [
+        "Check wheather the given account has either admin or sub-admin rights or not"
+      ],
+      "discriminator": [
+        103,
+        190,
+        106,
+        106,
+        26,
+        139,
+        121,
+        176
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "The global configuration account that stores information about admin and sub-admin roles."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "bool"
+    },
+    {
+      "name": "is_owner",
+      "docs": [
+        "Check wheather the given account has owner rights or not"
+      ],
+      "discriminator": [
+        81,
+        83,
+        130,
+        45,
+        19,
+        119,
+        220,
+        252
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "The global configuration account that stores information about admin and sub-admin roles."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "bool"
+    },
+    {
+      "name": "is_sub_admin",
+      "docs": [
+        "Check wheather the given account has sub-admin rights or not"
+      ],
+      "discriminator": [
+        83,
+        201,
+        238,
+        110,
+        129,
+        255,
+        90,
+        46
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "The global configuration account that stores information about admin and sub-admin roles."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "address",
+          "type": "pubkey"
+        }
+      ],
+      "returns": "bool"
+    },
+    {
+      "name": "is_user_blocked",
+      "discriminator": [
+        153,
+        11,
+        246,
+        136,
+        217,
+        88,
+        146,
+        165
+      ],
+      "accounts": [
+        {
+          "name": "blacklist",
+          "docs": [
+            "Account storing blacklist users"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  108,
+                  97,
+                  99,
+                  107,
+                  108,
+                  105,
+                  115,
+                  116
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "address",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "manage_users",
+      "docs": [
+        "Manage user accounts and their permissions"
+      ],
+      "discriminator": [
+        185,
+        76,
+        29,
+        221,
+        89,
+        156,
+        26,
+        24
+      ],
+      "accounts": [
+        {
+          "name": "creators",
+          "docs": [
+            "Account storing creator information, used to verify permissions"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "users",
+          "docs": [
+            "Account storing user information, updated based on the action (add/remove users)"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  115,
+                  101,
+                  114,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "Fund data store account.",
+            "Stores details about the fundraising process, including the current status."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "blacklist",
+          "docs": [
+            "Account storing blacklist users"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  108,
+                  97,
+                  99,
+                  107,
+                  108,
+                  105,
+                  115,
+                  116
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "params.token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "metadata"
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The payer responsible for the transaction"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "System program required for allocation and execution of instructions"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "fund::structs::manage_users::Params"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "mint",
+      "docs": [
+        "Mint additional tokens to a specified account"
+      ],
+      "discriminator": [
+        51,
+        57,
+        225,
+        47,
+        182,
+        146,
+        137,
+        166
+      ],
+      "accounts": [
+        {
+          "name": "mint_account",
+          "docs": [
+            "The mint account for the token being minted",
+            "This account must be initialized with the correct seed"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "params.token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_mint_account",
+          "docs": [
+            "The escrow account that will be authorized to mint tokens",
+            "This is a PDA that acts as an intermediary holder"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_mint_ata",
+          "docs": [
+            "The associated token account for the escrow to hold minted tokens",
+            "This account is initialized if it doesn't exist"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "escrow_mint_account"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "authority",
+          "docs": [
+            "The authority that can mint tokens",
+            "Must be a signer and pays for any account initialization"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "docs": [
+            "The SPL Token program account"
+          ],
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "The Solana System program account"
+          ],
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "associated_token_program",
+          "docs": [
+            "The SPL Associated Token program account"
+          ],
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "fund::structs::mint::Params"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "move_to_lp",
+      "discriminator": [
+        51,
+        91,
+        252,
+        146,
+        139,
+        116,
+        52,
+        133
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Global configuration storing administrative permissions"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_sol_account",
+          "docs": [
+            "The escrow account storing SOL before it is transferred"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "The fund data store tracking fundraising status"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_mint_account",
+          "docs": [
+            "The escrow account that holds the minted tokens"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_mint_ata",
+          "docs": [
+            "The escrow associated token account (ATA) for storing tokens before transfer"
+          ],
+          "writable": true
+        },
+        {
+          "name": "mint_account",
+          "docs": [
+            "The mint account for the token being transferred"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "to_account",
+          "docs": [
+            "The recipient's account that will receive the SOL or tokens"
+          ],
+          "writable": true
+        },
+        {
+          "name": "to_ata",
+          "docs": [
+            "The recipient's associated token account (ATA) for receiving tokens"
+          ],
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The payer who initiates the transaction"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "caller_program"
+        },
+        {
+          "name": "token_program",
+          "docs": [
+            "The SPL Token program"
+          ],
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "docs": [
+            "The SPL Associated Token program"
+          ],
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "The Solana System program"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "reject_proposal",
+      "discriminator": [
+        114,
+        162,
+        164,
+        82,
+        191,
+        11,
+        102,
+        25
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "approver",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        }
+      ],
+      "returns": "bool"
+    },
+    {
+      "name": "remove_admin",
+      "discriminator": [
+        74,
+        202,
+        71,
+        106,
+        252,
+        31,
+        72,
+        183
+      ],
+      "accounts": [
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "executor",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "remove_deployer",
+      "discriminator": [
+        130,
+        155,
+        63,
+        171,
+        224,
+        137,
+        63,
+        106
+      ],
+      "accounts": [
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "executor",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "remove_sub_admin_accounts",
+      "docs": [
+        "Remove multiple sub-admin accounts from the program"
+      ],
+      "discriminator": [
+        152,
+        249,
+        193,
+        89,
+        66,
+        185,
+        139,
+        172
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "addresses",
+          "type": {
+            "vec": "pubkey"
+          }
+        }
+      ]
+    },
+    {
+      "name": "reset",
+      "discriminator": [
+        23,
+        81,
+        251,
+        84,
+        138,
+        183,
+        240,
+        214
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Reference to the global configuration account"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "account",
+          "writable": true
+        },
+        {
+          "name": "receiver",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "start_dao",
+      "discriminator": [
+        100,
+        74,
+        40,
+        56,
+        20,
+        244,
+        64,
+        109
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Reference to the global configuration account"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "Fund data store account.",
+            "Stores details about the fundraising process, including the current status."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "docs": [
+            "Mint account associated with the DPIT token.",
+            "This is used for identifying the token related to the DAO."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The payer (signer) initiating the DAO start.",
+            "Must be an authorized creator to perform this action."
+          ],
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "start_party_round",
+      "discriminator": [
+        31,
+        22,
+        203,
+        9,
+        168,
+        80,
+        254,
+        35
+      ],
+      "accounts": [
+        {
+          "name": "creators",
+          "docs": [
+            "Creators account.",
+            "Stores information about the DAO creators and their permissions."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "metadata"
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "Fund data store account.",
+            "Stores details about the fundraising process, including the current status."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "docs": [
+            "Mint account associated with the DPIT token.",
+            "This is used for identifying the token related to the DAO."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The payer (signer) initiating the DAO start.",
+            "Must be an authorized creator to perform this action."
+          ],
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "transfer_sol_to_creator",
+      "discriminator": [
+        11,
+        66,
+        203,
+        245,
+        66,
+        69,
+        165,
+        61
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Global configuration storing administrative permissions"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_sol_account",
+          "docs": [
+            "The escrow account storing SOL before it is transferred"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "The fund data store tracking fundraising status"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "docs": [
+            "The mint account for the token being transferred"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "params.token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator_address",
+          "docs": [
+            "The recipient's account that will receive the SOL"
+          ],
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The payer who initiates the transaction"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "The Solana System program"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "fund::structs::transfer::Params"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "transfer_to_deployer",
+      "docs": [
+        "Transfer tokens between accounts"
+      ],
+      "discriminator": [
+        9,
+        137,
+        144,
+        2,
+        82,
+        209,
+        163,
+        224
+      ],
+      "accounts": [
+        {
+          "name": "creators",
+          "docs": [
+            "Account storing creator information"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow_sol_account",
+          "docs": [
+            "The escrow account storing SOL before it is transferred"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "The fund data store tracking fundraising status"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "docs": [
+            "The mint account for the token being transferred"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "params.token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "metadata"
+        },
+        {
+          "name": "deployer_address",
+          "docs": [
+            "The recipient's account that will receive the SOL or tokens"
+          ],
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The payer who initiates the transaction"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "The Solana System program"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "fund::structs::transfer::Params"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "unblock_creator",
+      "discriminator": [
+        114,
+        3,
+        143,
+        149,
+        116,
+        8,
+        115,
+        128
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Reference to the global configuration account"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "creators",
+          "docs": [
+            "The account storing the list of creators"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "executer",
+          "docs": [
+            "The executer responsible for the transaction"
+          ],
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "unblock_user",
+      "discriminator": [
+        216,
+        208,
+        128,
+        98,
+        74,
+        210,
+        18,
+        114
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Reference to the global configuration account"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "blacklist",
+          "docs": [
+            "Account storing blacklist users"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  108,
+                  97,
+                  99,
+                  107,
+                  108,
+                  105,
+                  115,
+                  116
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "executer",
+          "docs": [
+            "The executer responsible for the transaction"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "System program required for allocation and execution of instructions"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "update_fee_account",
+      "docs": [
+        "Update the fee collection account address"
+      ],
+      "discriminator": [
+        217,
+        138,
+        47,
+        96,
+        184,
+        90,
+        227,
+        19
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "The global configuration account storing system-wide settings"
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fee_account",
+          "docs": [
+            "The fee account storing fee collection details"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "docs": [
+            "The authority (must be a signer) requesting the fee account update"
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "The Solana System program account"
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "fee_account",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "update_fees",
+      "docs": [
+        "Update fee parameters for the program"
+      ],
+      "discriminator": [
+        225,
+        27,
+        13,
+        6,
+        69,
+        84,
+        172,
+        191
+      ],
+      "accounts": [
+        {
+          "name": "global_config",
+          "docs": [
+            "Global configuration account.",
+            "This holds the list of sub-admins and other global settings."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator_info",
+          "docs": [
+            "Creator information account.",
+            "This stores information about the creator, including their fee percentage."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "params.address"
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "Fund data store account.",
+            "This account stores fundraising details, including fee percentages."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "docs": [
+            "The mint account for the associated token.",
+            "This account is used to identify which token the fees apply to."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "params.token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "docs": [
+            "The signer who must be a sub-admin to authorize this action."
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "The Solana System Program."
+          ],
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "fund::structs::update_fee::Params"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "update_owner",
+      "docs": [
+        "Update the owner address for the program"
+      ],
+      "discriminator": [
+        164,
+        188,
+        124,
+        254,
+        132,
+        26,
+        198,
+        178
+      ],
+      "accounts": [
+        {
+          "name": "proposals_list",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "executor",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "update_status",
+      "docs": [
+        "Update the status of a token or account"
+      ],
+      "discriminator": [
+        147,
+        215,
+        74,
+        174,
+        55,
+        191,
+        42,
+        0
+      ],
+      "accounts": [
+        {
+          "name": "creators",
+          "docs": [
+            "Creators account.",
+            "This stores information about the creators, including their permissions."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fund_data_store",
+          "docs": [
+            "Fund data store account.",
+            "This account stores fundraising details, including the current status."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  117,
+                  110,
+                  100,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint_account",
+          "docs": [
+            "The mint account associated with the DPIT token.",
+            "This is only used for reference."
+          ],
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "params.token"
+              }
+            ]
+          }
+        },
+        {
+          "name": "metadata"
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The signer who must be an authorized creator to update the status."
+          ],
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "fund::structs::update_status::Params"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "upgrade_account",
+      "docs": [
+        "Upgrade account"
+      ],
+      "discriminator": [
+        210,
+        14,
+        70,
+        243,
+        180,
+        118,
+        117,
+        55
+      ],
+      "accounts": [
+        {
+          "name": "account",
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "new_size",
+          "type": "u16"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Blacklist",
+      "discriminator": [
+        131,
+        9,
+        212,
+        250,
+        58,
+        186,
+        247,
+        3
+      ]
+    },
+    {
+      "name": "Commitments",
+      "discriminator": [
+        132,
+        41,
+        8,
+        207,
+        138,
+        210,
+        161,
+        224
+      ]
+    },
+    {
+      "name": "CreatorInfo",
+      "discriminator": [
+        86,
+        132,
+        42,
+        176,
+        155,
+        145,
+        82,
+        178
+      ]
+    },
+    {
+      "name": "Creators",
+      "discriminator": [
+        61,
+        145,
+        233,
+        241,
+        1,
+        118,
+        144,
+        236
+      ]
+    },
+    {
+      "name": "DaoList",
+      "discriminator": [
+        178,
+        103,
+        129,
+        76,
+        166,
+        69,
+        64,
+        91
+      ]
+    },
+    {
+      "name": "FeeAccount",
+      "discriminator": [
+        137,
+        191,
+        201,
+        34,
+        168,
+        222,
+        43,
+        138
+      ]
+    },
+    {
+      "name": "FundDataStore",
+      "discriminator": [
+        225,
+        239,
+        252,
+        237,
+        113,
+        94,
+        207,
+        10
+      ]
+    },
+    {
+      "name": "GlobalConfig",
+      "discriminator": [
+        149,
+        8,
+        156,
+        202,
+        160,
+        252,
+        176,
+        217
+      ]
+    },
+    {
+      "name": "ProposalsList",
+      "discriminator": [
+        142,
+        57,
+        116,
+        206,
+        66,
+        235,
+        22,
+        20
+      ]
+    },
+    {
+      "name": "Users",
+      "discriminator": [
+        195,
+        63,
+        67,
+        167,
+        72,
+        120,
+        211,
+        145
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "AccountReset",
+      "discriminator": [
+        124,
+        143,
+        144,
+        228,
+        12,
+        116,
+        90,
+        28
+      ]
+    },
+    {
+      "name": "Burn",
+      "discriminator": [
+        184,
+        13,
+        65,
+        206,
+        206,
+        170,
+        51,
+        85
+      ]
+    },
+    {
+      "name": "Claim",
+      "discriminator": [
+        133,
+        98,
+        9,
+        238,
+        133,
+        207,
+        191,
+        113
+      ]
+    },
+    {
+      "name": "Commitment",
+      "discriminator": [
+        197,
+        196,
+        50,
+        147,
+        66,
+        252,
+        92,
+        14
+      ]
+    },
+    {
+      "name": "Create",
+      "discriminator": [
+        11,
+        141,
+        113,
+        194,
+        133,
+        34,
+        56,
+        192
+      ]
+    },
+    {
+      "name": "CreatorAdded",
+      "discriminator": [
+        95,
+        214,
+        107,
+        88,
+        9,
+        31,
+        98,
+        66
+      ]
+    },
+    {
+      "name": "CreatorBlacklisted",
+      "discriminator": [
+        145,
+        239,
+        122,
+        60,
+        48,
+        93,
+        73,
+        230
+      ]
+    },
+    {
+      "name": "CreatorUnblocked",
+      "discriminator": [
+        190,
+        94,
+        31,
+        170,
+        65,
+        145,
+        23,
+        129
+      ]
+    },
+    {
+      "name": "DaoBlacklisted",
+      "discriminator": [
+        125,
+        30,
+        93,
+        177,
+        104,
+        155,
+        73,
+        85
+      ]
+    },
+    {
+      "name": "DaoEnded",
+      "discriminator": [
+        31,
+        223,
+        138,
+        85,
+        178,
+        93,
+        213,
+        77
+      ]
+    },
+    {
+      "name": "DaoStarted",
+      "discriminator": [
+        169,
+        94,
+        70,
+        177,
+        216,
+        122,
+        58,
+        54
+      ]
+    },
+    {
+      "name": "FeeAccountUpdated",
+      "discriminator": [
+        229,
+        205,
+        84,
+        149,
+        89,
+        243,
+        195,
+        131
+      ]
+    },
+    {
+      "name": "FeeUpdated",
+      "discriminator": [
+        228,
+        75,
+        43,
+        103,
+        9,
+        196,
+        182,
+        4
+      ]
+    },
+    {
+      "name": "Init",
+      "discriminator": [
+        3,
+        223,
+        113,
+        110,
+        13,
+        103,
+        100,
+        11
+      ]
+    },
+    {
+      "name": "InitCommitment",
+      "discriminator": [
+        139,
+        107,
+        129,
+        100,
+        7,
+        173,
+        49,
+        189
+      ]
+    },
+    {
+      "name": "InitCreators",
+      "discriminator": [
+        85,
+        125,
+        208,
+        102,
+        164,
+        198,
+        218,
+        255
+      ]
+    },
+    {
+      "name": "ManageUsers",
+      "discriminator": [
+        128,
+        183,
+        153,
+        162,
+        45,
+        142,
+        145,
+        82
+      ]
+    },
+    {
+      "name": "Mint",
+      "discriminator": [
+        63,
+        11,
+        213,
+        134,
+        148,
+        194,
+        24,
+        203
+      ]
+    },
+    {
+      "name": "MoveToLP",
+      "discriminator": [
+        249,
+        119,
+        133,
+        191,
+        126,
+        60,
+        206,
+        25
+      ]
+    },
+    {
+      "name": "MultisigInitiated",
+      "discriminator": [
+        138,
+        23,
+        86,
+        185,
+        235,
+        2,
+        211,
+        71
+      ]
+    },
+    {
+      "name": "PartyRoundStarted",
+      "discriminator": [
+        208,
+        195,
+        96,
+        255,
+        19,
+        197,
+        200,
+        185
+      ]
+    },
+    {
+      "name": "Transfer",
+      "discriminator": [
+        25,
+        18,
+        23,
+        7,
+        172,
+        116,
+        130,
+        28
+      ]
+    },
+    {
+      "name": "TransferredSolToCreator",
+      "discriminator": [
+        73,
+        246,
+        242,
+        37,
+        22,
+        97,
+        210,
+        67
+      ]
+    },
+    {
+      "name": "TransferredSolToDeployer",
+      "discriminator": [
+        229,
+        204,
+        200,
+        45,
+        176,
+        212,
+        243,
+        131
+      ]
+    },
+    {
+      "name": "UpdateAdmin",
+      "discriminator": [
+        231,
+        1,
+        36,
+        72,
+        175,
+        188,
+        177,
+        162
+      ]
+    },
+    {
+      "name": "UpdateFees",
+      "discriminator": [
+        2,
+        138,
+        167,
+        71,
+        162,
+        154,
+        107,
+        73
+      ]
+    },
+    {
+      "name": "UpdateStatus",
+      "discriminator": [
+        213,
+        239,
+        30,
+        246,
+        100,
+        28,
+        156,
+        231
+      ]
+    },
+    {
+      "name": "UpdateSubAdmins",
+      "discriminator": [
+        107,
+        179,
+        252,
+        180,
+        226,
+        32,
+        194,
+        197
+      ]
+    },
+    {
+      "name": "UserBlacklisted",
+      "discriminator": [
+        206,
+        113,
+        42,
+        126,
+        51,
+        137,
+        138,
+        187
+      ]
+    },
+    {
+      "name": "UserUnblocked",
+      "discriminator": [
+        205,
+        140,
+        210,
+        131,
+        161,
+        149,
+        159,
+        237
+      ]
+    },
+    {
+      "name": "UsersInitiated",
+      "discriminator": [
+        60,
+        219,
+        126,
+        210,
+        191,
+        124,
+        158,
+        213
+      ]
+    },
+    {
+      "name": "WithdrawalToContract",
+      "discriminator": [
+        223,
+        174,
+        85,
+        164,
+        229,
+        26,
+        51,
+        1
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "AmountCantBeZero",
+      "msg": "Error: Amount can't be zero!"
+    },
+    {
+      "code": 6001,
+      "name": "MinimumAmountNotMet",
+      "msg": "Error: Amount must be greater than or equals to 0.1 sols!"
+    },
+    {
+      "code": 6002,
+      "name": "CommitAmountExceeded",
+      "msg": "Error: Commit amount can't be exceeded by max allowable commit amount!"
+    },
+    {
+      "code": 6003,
+      "name": "AlreadyClaimed",
+      "msg": "Error: All tokens are claimed already!"
+    },
+    {
+      "code": 6004,
+      "name": "AlreadyApproved",
+      "msg": "Error: Proposal is already approved by same approver!"
+    },
+    {
+      "code": 6005,
+      "name": "DuplicateUser",
+      "msg": "Error: User is already added!"
+    },
+    {
+      "code": 6006,
+      "name": "BlockedAccount",
+      "msg": "Error: Address is blacklisted!"
+    },
+    {
+      "code": 6007,
+      "name": "InEligible",
+      "msg": "Error: User ineligible to commit!"
+    },
+    {
+      "code": 6008,
+      "name": "Unauthorized",
+      "msg": "Error: Unauthorized User!"
+    },
+    {
+      "code": 6009,
+      "name": "UnknownFeeAccount",
+      "msg": "Error: Unknown Fee Account!"
+    },
+    {
+      "code": 6010,
+      "name": "UnknownReceiver",
+      "msg": "Error: Unknown Receiver!"
+    },
+    {
+      "code": 6011,
+      "name": "NotFound",
+      "msg": "Error: Not Found!"
+    },
+    {
+      "code": 6012,
+      "name": "AddressNotFound",
+      "msg": "Error: Address Not Found!"
+    },
+    {
+      "code": 6013,
+      "name": "PermissionDenied",
+      "msg": "Error: Permission Denied!"
+    },
+    {
+      "code": 6014,
+      "name": "TimestampError",
+      "msg": "Error: while getting current timestamp!"
+    },
+    {
+      "code": 6015,
+      "name": "ExceedsWithdrawLimit",
+      "msg": "Error: Excceding the withdraw limit!"
+    },
+    {
+      "code": 6016,
+      "name": "FundraiseFailed",
+      "msg": "Error: Fundraise is not successfull!"
+    },
+    {
+      "code": 6017,
+      "name": "DaoNotInTrading",
+      "msg": "Error: Dao status is not Trading!"
+    },
+    {
+      "code": 6018,
+      "name": "AmountCannotBeZero",
+      "msg": "Error: Amount Cannot be Zero!"
+    },
+    {
+      "code": 6019,
+      "name": "ParseError",
+      "msg": "Error: Couldn't parse to Pubkey!"
+    },
+    {
+      "code": 6020,
+      "name": "AlreadyExecuted",
+      "msg": "Proposal has already been executed."
+    },
+    {
+      "code": 6021,
+      "name": "NotApproved",
+      "msg": "Proposal has not been approved yet."
+    },
+    {
+      "code": 6022,
+      "name": "InValidDaoStatus",
+      "msg": "InValidDaoStatus."
+    },
+    {
+      "code": 6023,
+      "name": "InvalidProposalType",
+      "msg": "Invalid Proposal."
+    },
+    {
+      "code": 6024,
+      "name": "AccountMisMatch",
+      "msg": "AccountMisMatch."
+    },
+    {
+      "code": 6025,
+      "name": "DuplicateProposal",
+      "msg": "Same Proposal."
+    },
+    {
+      "code": 6026,
+      "name": "PresentInDeployerList",
+      "msg": "Address present in deployer list."
+    },
+    {
+      "code": 6027,
+      "name": "PresentInCreatorList",
+      "msg": "Address present in creator list."
+    },
+    {
+      "code": 6028,
+      "name": "PresentInAdminList",
+      "msg": "Address present in admin list."
+    }
+  ],
+  "types": [
+    {
+      "name": "AccountReset",
+      "docs": [
+        "Event emitted when account is closed"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    },
+    {
+      "name": "ApproverType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Admin"
+          },
+          {
+            "name": "Deployer"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Blacklist",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "users",
+            "docs": [
+              "List of blacklist users."
+            ],
+            "type": {
+              "vec": "pubkey"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Burn",
+      "docs": [
+        "Event emitted when tokens are burned"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "The token identifier"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "amount",
+            "docs": [
+              "Amount of tokens burned"
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Claim",
+      "docs": [
+        "Event emitted when tokens or SOL are claimed"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "The token identifier"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "amount",
+            "docs": [
+              "Amount claimed"
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Commitment",
+      "docs": [
+        "Event emitted when a commitment is made"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "The token identifier"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "sol_amount",
+            "docs": [
+              "Amount of SOL committed"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "token_amount",
+            "docs": [
+              "Amount of tokens to receive"
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CommitmentDetails",
+      "docs": [
+        "Struct to store details of an individual commitment."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "docs": [
+              "Address of the committer."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "sol_amount",
+            "docs": [
+              "Amount of SOL committed."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "token_amount",
+            "docs": [
+              "Amount of tokens received in exchange for SOL."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "last_claimed_at",
+            "docs": [
+              "Timestamp of the last claimed amount (if any)."
+            ],
+            "type": {
+              "option": "i64"
+            }
+          },
+          {
+            "name": "amount_claimed",
+            "docs": [
+              "Total amount of tokens claimed by the committer."
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Commitments",
+      "docs": [
+        "Account struct to manage commitments made by users."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "commiters",
+            "docs": [
+              "List of individual commitment details."
+            ],
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "CommitmentDetails"
+                }
+              }
+            }
+          },
+          {
+            "name": "total_commited_sols",
+            "docs": [
+              "Total amount of SOL committed."
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Create",
+      "docs": [
+        "Event emitted when a new token is created"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "docs": [
+              "Name of the created token"
+            ],
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Creator",
+      "docs": [
+        "Struct representing an individual creator."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "docs": [
+              "The public key of the creator."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "is_blocked",
+            "docs": [
+              "Boolean flag indicating whether the creator has been blocked."
+            ],
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreatorAdded",
+      "docs": [
+        "Event emitted when creators list is modified"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "current_creators_count",
+            "docs": [
+              "Updated count of creators"
+            ],
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreatorBlacklisted",
+      "docs": [
+        "Event emitted when creator is blocked"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creator",
+            "docs": [
+              "Creator Address"
+            ],
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreatorData",
+      "docs": [
+        "Struct that defines the vesting schedule percentages."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "claimed_at",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreatorInfo",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "Token name"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "fee_percent",
+            "docs": [
+              "Fee Percent"
+            ],
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreatorShare",
+      "docs": [
+        "Struct that defines the vesting schedule percentages."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_withdrawable",
+            "type": "u64"
+          },
+          {
+            "name": "creators",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "CreatorData"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreatorUnblocked",
+      "docs": [
+        "Event emitted when creator is unblocked"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creator",
+            "docs": [
+              "Creator Address"
+            ],
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Creators",
+      "docs": [
+        "Struct that manages a list of creators."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creators",
+            "docs": [
+              "List of registered creators."
+            ],
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "Creator"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "DaoBlacklisted",
+      "docs": [
+        "Event emitted when dao is blocked"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "Token name"
+            ],
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DaoEnded",
+      "docs": [
+        "Event emitted when dao is ended"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "Token name"
+            ],
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DaoList",
+      "docs": [
+        "Account struct to maintain a list of tokens."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "tokens",
+            "docs": [
+              "The total  tokens currently tracked."
+            ],
+            "type": {
+              "vec": "string"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "DaoStarted",
+      "docs": [
+        "Event emitted when dao is started"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "Name of the created token"
+            ],
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DeployerData",
+      "docs": [
+        "Struct that defines the vesting schedule percentages."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "claimed_at",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DeployerShare",
+      "docs": [
+        "Struct that defines the vesting schedule percentages."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "deployers",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "DeployerData"
+                }
+              }
+            }
+          },
+          {
+            "name": "total_withdrawable",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ExecutorType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Admin"
+          },
+          {
+            "name": "Owner"
+          },
+          {
+            "name": "Creator"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FeeAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "fees_collection_account",
+            "docs": [
+              "Fee collection account"
+            ],
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FeeAccountUpdated",
+      "docs": [
+        "Event emitted when fee collection account is updated"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "from",
+            "docs": [
+              "Previous fee collection account"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "to",
+            "docs": [
+              "New fee collection account"
+            ],
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FeeUpdated",
+      "docs": [
+        "Event emitted when token fees are updated"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "Token mint address"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "from",
+            "docs": [
+              "Previous fee percentage"
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "to",
+            "docs": [
+              "New fee percentage"
+            ],
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FundDataStore",
+      "docs": [
+        "Struct that stores fundraising-related data."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "created_at",
+            "docs": [
+              "Timestamp indicating when the fundraising campaign was created."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "created_by",
+            "docs": [
+              "created_by."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "start_date",
+            "docs": [
+              "The end date of the fundraising campaign (Unix timestamp)."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "end_date",
+            "docs": [
+              "The end date of the fundraising campaign (Unix timestamp)."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "fundraising_goal",
+            "docs": [
+              "The fundraising goal, represented in SOL."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "status",
+            "docs": [
+              "The current status of the fundraising campaign."
+            ],
+            "type": {
+              "defined": {
+                "name": "Status"
+              }
+            }
+          },
+          {
+            "name": "tokens_per_sol",
+            "docs": [
+              "Number of tokens allocated per SOL contributed."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "fee_percent",
+            "docs": [
+              "Fee percentage deducted from contributions."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "vesting_percent",
+            "docs": [
+              "Vesting percentage configuration."
+            ],
+            "type": {
+              "defined": {
+                "name": "VestingPercent"
+              }
+            }
+          },
+          {
+            "name": "creators",
+            "type": {
+              "defined": {
+                "name": "CreatorShare"
+              }
+            }
+          },
+          {
+            "name": "deployers",
+            "type": {
+              "defined": {
+                "name": "DeployerShare"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "GlobalConfig",
+      "docs": [
+        "Struct that represents the global configuration of the system."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "deployers",
+            "docs": [
+              "List of sub-admins who have limited administrative privileges."
+            ],
+            "type": {
+              "vec": "pubkey"
+            }
+          },
+          {
+            "name": "sub_admins",
+            "docs": [
+              "List of sub-admins who have limited administrative privileges."
+            ],
+            "type": {
+              "vec": "pubkey"
+            }
+          },
+          {
+            "name": "admins",
+            "docs": [
+              "List of admins who have administrative privileges."
+            ],
+            "type": {
+              "vec": "pubkey"
+            }
+          },
+          {
+            "name": "owner",
+            "docs": [
+              "The owner."
+            ],
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Init",
+      "docs": [
+        "Event emitted when the program is initialized",
+        "Contains the initial admin and sub-admin addresses"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "docs": [
+              "The primary administrator's public key"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "sub_admin",
+            "docs": [
+              "The initial sub-administrator's public key"
+            ],
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InitCommitment",
+      "docs": [
+        "Event emitted when a new commitment is initialized for a token"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "The token identifier for which commitment is initialized"
+            ],
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InitCreators",
+      "docs": [
+        "Event emitted when creator accounts are initialized"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    },
+    {
+      "name": "ManageUsers",
+      "docs": [
+        "Event emitted when user lists are modified"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "The token identifier"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "user_type",
+            "docs": [
+              "Type of user (VIP/Party)"
+            ],
+            "type": {
+              "defined": {
+                "name": "UserType"
+              }
+            }
+          },
+          {
+            "name": "manage_type",
+            "docs": [
+              "Type of update (Add/Remove)"
+            ],
+            "type": {
+              "defined": {
+                "name": "UpdateType"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Mint",
+      "docs": [
+        "Event emitted when tokens are minted"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "The token identifier"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "amount",
+            "docs": [
+              "Amount of tokens minted"
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MoveToLP",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "The token identifier"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "token_amount",
+            "type": "u64"
+          },
+          {
+            "name": "sol_amount",
+            "docs": [
+              "Amount transferred"
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MultisigInitiated",
+      "docs": [
+        "Event emitted when multisig is initiated"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    },
+    {
+      "name": "PartyRoundStarted",
+      "docs": [
+        "Event emitted when party round is started"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "Token name"
+            ],
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProposalData",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "id",
+            "type": "u32"
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "created_by",
+            "type": "pubkey"
+          },
+          {
+            "name": "proposal_type",
+            "type": {
+              "defined": {
+                "name": "ProposalType"
+              }
+            }
+          },
+          {
+            "name": "address",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "approver_threshold",
+            "type": "u8"
+          },
+          {
+            "name": "dao_name",
+            "type": {
+              "option": "string"
+            }
+          },
+          {
+            "name": "transfer_amount",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "approve_type",
+            "type": {
+              "defined": {
+                "name": "ApproverType"
+              }
+            }
+          },
+          {
+            "name": "executor_type",
+            "type": {
+              "defined": {
+                "name": "ExecutorType"
+              }
+            }
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "ProposalStatus"
+              }
+            }
+          },
+          {
+            "name": "executed_at",
+            "type": {
+              "option": "i64"
+            }
+          },
+          {
+            "name": "approvers",
+            "type": {
+              "vec": "pubkey"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProposalStatus",
+      "docs": [
+        "Proposal Status"
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Pending"
+          },
+          {
+            "name": "Rejected",
+            "fields": [
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "Approved",
+            "fields": [
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProposalType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "UpdateOwner"
+          },
+          {
+            "name": "AddAdmin"
+          },
+          {
+            "name": "RemoveAdmin"
+          },
+          {
+            "name": "AddDeployer"
+          },
+          {
+            "name": "RemoveDeployer"
+          },
+          {
+            "name": "TransferSolToDeployer"
+          },
+          {
+            "name": "TransferSolToCreator"
+          },
+          {
+            "name": "PublishToAMM"
+          },
+          {
+            "name": "RemoveLiquidity"
+          },
+          {
+            "name": "BlockListDAO"
+          },
+          {
+            "name": "BlockListCreator"
+          },
+          {
+            "name": "UnblockCreator"
+          },
+          {
+            "name": "BlocklistUser"
+          },
+          {
+            "name": "UnblockUser"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProposalsList",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "proposals",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "ProposalData"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Status",
+      "docs": [
+        "Enum representing the different statuses a fundraising or trading project can have."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Created"
+          },
+          {
+            "name": "FundraisingVip"
+          },
+          {
+            "name": "FundraisingParty"
+          },
+          {
+            "name": "FundraisingSuccess"
+          },
+          {
+            "name": "FundraisingFail"
+          },
+          {
+            "name": "Trade"
+          },
+          {
+            "name": "Expired"
+          },
+          {
+            "name": "Closed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Transfer",
+      "docs": [
+        "Event emitted when tokens are transferred"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "The token identifier"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "to",
+            "docs": [
+              "Recipient's public key"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "docs": [
+              "Amount transferred"
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TransferredSolToCreator",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creator",
+            "docs": [
+              "The token identifier"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TransferredSolToDeployer",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "deployer",
+            "docs": [
+              "The token identifier"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateAdmin",
+      "docs": [
+        "Event emitted when admin is updated"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "from",
+            "docs": [
+              "Previous admin's public key"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "to",
+            "docs": [
+              "New admin's public key"
+            ],
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateFees",
+      "docs": [
+        "Event emitted when fee structure is updated"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "from",
+            "docs": [
+              "Previous fee amount"
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "to",
+            "docs": [
+              "New fee amount"
+            ],
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateStatus",
+      "docs": [
+        "Event emitted when token status changes"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "The token identifier"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "docs": [
+              "New status value"
+            ],
+            "type": {
+              "defined": {
+                "name": "Status"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateSubAdmins",
+      "docs": [
+        "Event emitted when sub-admin list is modified"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "update_type",
+            "docs": [
+              "Type of update (Add/Remove)"
+            ],
+            "type": {
+              "defined": {
+                "name": "UpdateType"
+              }
+            }
+          },
+          {
+            "name": "addresses",
+            "docs": [
+              "List of affected sub-admin addresses"
+            ],
+            "type": {
+              "vec": "pubkey"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateType",
+      "docs": [
+        "Update Type"
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Add"
+          },
+          {
+            "name": "Remove"
+          },
+          {
+            "name": "Block"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserBlacklisted",
+      "docs": [
+        "Event emitted when user is blocked"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "docs": [
+              "User Address"
+            ],
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserDetails",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "docs": [
+              "List of VIP users (addresses with special privileges)."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "max_allowable_amount",
+            "docs": [
+              "Maximum allowable contribution amount for users."
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserType",
+      "docs": [
+        "Enum representing different types of users in the system."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Vip"
+          },
+          {
+            "name": "Party"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserUnblocked",
+      "docs": [
+        "Event emitted when user is unblocked"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "docs": [
+              "User Address"
+            ],
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Users",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "vip",
+            "docs": [
+              "List of VIP users (addresses with special privileges)."
+            ],
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "UserDetails"
+                }
+              }
+            }
+          },
+          {
+            "name": "party",
+            "docs": [
+              "List of party users (regular users participating in fundraising)."
+            ],
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "UserDetails"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "UsersInitiated",
+      "docs": [
+        "Event emitted when user groups are initialized for a token"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "The token identifier"
+            ],
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "VestingPercent",
+      "docs": [
+        "Struct that defines the vesting schedule percentages."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "first_claim",
+            "docs": [
+              "Percentage of tokens that can be claimed on the first claim."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "daily_claim",
+            "docs": [
+              "Daily percentage of tokens that can be claimed after the first claim."
+            ],
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "WithdrawalToContract",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "The token identifier"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "token_amount",
+            "docs": [
+              "Token Amount"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "sol_amount",
+            "docs": [
+              "Amount transferred"
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fund::structs::add_creator::Params",
+      "docs": [
+        "The struct containing instructions for manage creators params"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "docs": [
+              "Creator Address"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "fee_percent",
+            "docs": [
+              "Fee Percent"
+            ],
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fund::structs::burn::Params",
+      "docs": [
+        "The struct containing instructions for claim params"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "Token Name"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "amount",
+            "docs": [
+              "Amount"
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fund::structs::create::Params",
+      "docs": [
+        "The struct containing instructions for creating tokens"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "docs": [
+              "Token Name"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "symbol",
+            "docs": [
+              "Symbol"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "decimals",
+            "docs": [
+              "Decimals"
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "uri",
+            "docs": [
+              "URI"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "fundraising_goal",
+            "docs": [
+              "Fundraising Goal in USD"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "vesting_percent",
+            "docs": [
+              "Vesting Percent"
+            ],
+            "type": {
+              "defined": {
+                "name": "VestingPercent"
+              }
+            }
+          },
+          {
+            "name": "amount",
+            "docs": [
+              "Token Amount"
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fund::structs::manage_users::Params",
+      "docs": [
+        "The struct containing instructions for manage users params"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "Token Name"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "user_type",
+            "docs": [
+              "User Type"
+            ],
+            "type": {
+              "defined": {
+                "name": "UserType"
+              }
+            }
+          },
+          {
+            "name": "manage_type",
+            "docs": [
+              "Manage Type"
+            ],
+            "type": {
+              "defined": {
+                "name": "UpdateType"
+              }
+            }
+          },
+          {
+            "name": "users",
+            "docs": [
+              "Users"
+            ],
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "UserDetails"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "fund::structs::mint::Params",
+      "docs": [
+        "The struct containing instructions for claim params"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "Token Name"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "amount",
+            "docs": [
+              "Amount"
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fund::structs::transfer::Params",
+      "docs": [
+        "The struct containing instructions for transfer params"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "Token Name"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "proposal_id",
+            "docs": [
+              "Proposal Id"
+            ],
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fund::structs::update_fee::Params",
+      "docs": [
+        "The struct containing instructions for update fee params"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "docs": [
+              "Creator Address"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "token",
+            "docs": [
+              "Creator Address"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "fee_percent",
+            "docs": [
+              "Fee Percent"
+            ],
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fund::structs::update_status::Params",
+      "docs": [
+        "The struct containing instructions for update status params"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token",
+            "docs": [
+              "Token Name"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "docs": [
+              "Status"
+            ],
+            "type": {
+              "defined": {
+                "name": "Status"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "constants": [
+    {
+      "name": "BLACKLIST_TAG",
+      "docs": [
+        "Tag for block user"
+      ],
+      "type": "bytes",
+      "value": "[98, 108, 97, 99, 107, 108, 105, 115, 116]"
+    },
+    {
+      "name": "COMMITMENT_TAG",
+      "docs": [
+        "Tag for commitment tracking accounts"
+      ],
+      "type": "bytes",
+      "value": "[99, 111, 109, 109, 105, 116, 109, 101, 110, 116]"
+    },
+    {
+      "name": "CREATOR_TAG",
+      "docs": [
+        "Tag for creator accounts and their permissions"
+      ],
+      "type": "bytes",
+      "value": "[99, 114, 101, 97, 116, 111, 114, 115]"
+    },
+    {
+      "name": "DAO_TAG",
+      "docs": [
+        "Tag for counter accounts used in various operations"
+      ],
+      "type": "bytes",
+      "value": "[100, 97, 111, 95, 108, 105, 115, 116]"
+    },
+    {
+      "name": "ESCROW_TAG",
+      "docs": [
+        "Tag for escrow accounts that hold funds temporarily"
+      ],
+      "type": "bytes",
+      "value": "[101, 115, 99, 114, 111, 119]"
+    },
+    {
+      "name": "FEE_TAG",
+      "docs": [
+        "Tag for fee-related accounts and operations"
+      ],
+      "type": "bytes",
+      "value": "[102, 101, 101]"
+    },
+    {
+      "name": "FUND_DATA_TAG",
+      "docs": [
+        "Tag for fund-specific data accounts"
+      ],
+      "type": "bytes",
+      "value": "[102, 117, 110, 100, 95, 100, 97, 116, 97]"
+    },
+    {
+      "name": "GLOBAL_CONFIG_TAG",
+      "docs": [
+        "Tag for global configuration accounts"
+      ],
+      "type": "bytes",
+      "value": "[103, 108, 111, 98, 97, 108, 95, 99, 111, 110, 102, 105, 103]"
+    },
+    {
+      "name": "MINT_TAG",
+      "docs": [
+        "Tag for mint accounts that create and manage tokens"
+      ],
+      "type": "bytes",
+      "value": "[109, 105, 110, 116]"
+    },
+    {
+      "name": "PROPOSAL_TAG",
+      "docs": [
+        "Tag for proposal data accounts"
+      ],
+      "type": "bytes",
+      "value": "[112, 114, 111, 112, 111, 115, 97, 108]"
+    },
+    {
+      "name": "SOL_TAG",
+      "docs": [
+        "Tag for SOL-related operations and accounts"
+      ],
+      "type": "bytes",
+      "value": "[115, 111, 108]"
+    },
+    {
+      "name": "USER_TAG",
+      "docs": [
+        "Tag for user accounts and related data"
+      ],
+      "type": "bytes",
+      "value": "[117, 115, 101, 114, 115]"
+    }
+  ]
+}

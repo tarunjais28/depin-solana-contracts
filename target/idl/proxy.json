@@ -1,0 +1,320 @@
+{
+  "address": "3AYcjz6AuRXuj3VeS8h3sNiX84KKE3wE5wWYQDfBrhqg",
+  "metadata": {
+    "name": "proxy",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "add_liquidity",
+      "discriminator": [
+        181,
+        157,
+        89,
+        67,
+        143,
+        182,
+        52,
+        72
+      ],
+      "accounts": [
+        {
+          "name": "fund_global_config"
+        },
+        {
+          "name": "bonding_curve_global_config"
+        },
+        {
+          "name": "escrow_sol_account",
+          "writable": true
+        },
+        {
+          "name": "mint_account",
+          "writable": true
+        },
+        {
+          "name": "trade",
+          "writable": true
+        },
+        {
+          "name": "fund_data_store",
+          "writable": true
+        },
+        {
+          "name": "sol_reserve",
+          "writable": true
+        },
+        {
+          "name": "token_reserve",
+          "writable": true
+        },
+        {
+          "name": "escrow_mint_account",
+          "writable": true
+        },
+        {
+          "name": "escrow_mint_ata",
+          "writable": true
+        },
+        {
+          "name": "creators"
+        },
+        {
+          "name": "proposals_list",
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "fund",
+          "address": "8i6Qs3NA3jRFWFgz4cx765ck6uNkUtCmt5PkNeFPbg99"
+        },
+        {
+          "name": "bonding_curve_program",
+          "address": "ADgy4JNoyTP8X78cC9nV3sw8Wk9Yz6mNX49Y7YCzzkJX"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        }
+      ],
+      "args": [
+        {
+          "name": "proposal_id",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "create",
+      "discriminator": [
+        24,
+        30,
+        200,
+        40,
+        5,
+        28,
+        7,
+        119
+      ],
+      "accounts": [
+        {
+          "name": "creators",
+          "writable": true
+        },
+        {
+          "name": "creator_info",
+          "writable": true
+        },
+        {
+          "name": "mint_account",
+          "writable": true
+        },
+        {
+          "name": "metadata",
+          "writable": true
+        },
+        {
+          "name": "fund_data_store",
+          "writable": true
+        },
+        {
+          "name": "dao_list",
+          "writable": true
+        },
+        {
+          "name": "escrow_mint_account",
+          "writable": true
+        },
+        {
+          "name": "escrow_mint_ata",
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "fees_collection_account",
+          "writable": true
+        },
+        {
+          "name": "fund",
+          "address": "8i6Qs3NA3jRFWFgz4cx765ck6uNkUtCmt5PkNeFPbg99"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "token_metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "Params"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "AmountCantBeZero",
+      "msg": "Error: Amount can't be zero!"
+    },
+    {
+      "code": 6001,
+      "name": "InEligible",
+      "msg": "Error: User ineligible to commit!"
+    },
+    {
+      "code": 6002,
+      "name": "Unauthorized",
+      "msg": "Error: Unauthorized User!"
+    },
+    {
+      "code": 6003,
+      "name": "UnknownReceiver",
+      "msg": "Error: Unknown Receiver!"
+    },
+    {
+      "code": 6004,
+      "name": "UsersStackFull",
+      "msg": "Error: Users stack is full!"
+    },
+    {
+      "code": 6005,
+      "name": "NotFound",
+      "msg": "Error: Not Found!"
+    },
+    {
+      "code": 6006,
+      "name": "PermissionDenied",
+      "msg": "Error: Permission Denied!"
+    }
+  ],
+  "types": [
+    {
+      "name": "Params",
+      "docs": [
+        "The struct containing instructions for creating tokens"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "docs": [
+              "Token Name"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "symbol",
+            "docs": [
+              "Symbol"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "decimals",
+            "docs": [
+              "Decimals"
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "uri",
+            "docs": [
+              "URI"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "amount",
+            "docs": [
+              "Amount"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "fundraising_goal",
+            "docs": [
+              "Fundraising Goal in USD"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "vesting_percent",
+            "docs": [
+              "Vesting Percent"
+            ],
+            "type": {
+              "defined": {
+                "name": "VestingPercent"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "VestingPercent",
+      "docs": [
+        "Struct that defines the vesting schedule percentages."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "first_claim",
+            "docs": [
+              "Percentage of tokens that can be claimed on the first claim."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "daily_claim",
+            "docs": [
+              "Daily percentage of tokens that can be claimed after the first claim."
+            ],
+            "type": "u32"
+          }
+        ]
+      }
+    }
+  ]
+}
